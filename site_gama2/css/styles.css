@@ -1,0 +1,358 @@
+/* Variáveis de Design */
+:root {
+    --cor-primaria: #0056b3;
+    --cor-secundaria: #6c757d;
+    --cor-texto: #333;
+    --cor-fundo: #f4f4f4;
+    --fonte-principal: 'Arial', sans-serif;
+}
+
+/* Estilos Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: white;
+}
+
+/* Header */
+header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-area img {
+    max-height: 80px;
+    margin-right: 20px;
+}
+
+.header-title h1 {
+    font-size: 1.5rem;
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+
+.header-title p {
+    font-size: 0.9rem;
+    color: var(--cor-secundaria);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+}
+
+/* Banner Principal */
+.banner-principal {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-principal img {
+    width: 100%;
+    height: auto;
+}
+
+.banner-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    padding: 20px;
+    max-width: 500px;
+}
+
+.banner-overlay h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.banner-overlay p {
+    font-size: 1.2rem;
+}
+
+/* Destaques */
+.destaques {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.destaque-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.destaque-item {
+    flex: 1;
+    margin: 0 15px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.destaque-item:hover {
+    transform: scale(1.05);
+}
+
+.destaque-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.destaque-item h3 {
+    margin: 15px 0 10px;
+    color: var(--cor-primaria);
+}
+
+.destaque-item p {
+    padding: 0 15px 15px;
+}
+
+.btn-saiba-mais {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #004080;
+}
+
+/* Notícias */
+.noticias {
+    padding: 50px 0;
+}
+
+.noticias-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.noticias-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--cor-primaria);
+}
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.noticia-item {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.noticia-item:hover {
+    transform: scale(1.05);
+}
+
+.noticia-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.noticia-conteudo {
+    padding: 15px;
+}
+
+.noticia-conteudo h3 {
+    margin-bottom: 10px;
+    color: var(--cor-primaria);
+}
+
+.btn-noticia {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-noticia:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+/* Parceiros */
+.parceiros {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.parceiros-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.parceiros-container h2 {
+    margin-bottom: 30px;
+    color: var(--cor-primaria);
+}
+
+.parceiros-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.parceiro-logo {
+    display: inline-block;
+    max-width: 150px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.parceiro-logo:hover {
+    opacity: 1;
+}
+
+.parceiro-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-info h4 {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+.contato p, .links-uteis ul, .redes-sociais {
+    margin-bottom: 10px;
+}
+
+.links-uteis ul {
+    list-style: none;
+}
+
+.links-uteis ul li a,
+.redes-sociais a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links-uteis ul li a:hover,
+.redes-sociais a:hover {
+    color: var(--cor-primaria);
+}
+
+.copyright {
+    text-align: center;
+    color: var(--cor-secundaria);
+    border-top: 1px solid #e9ecef;
+    padding-top: 20px;
+}
+
+/* Responsividade básica */
+@media screen and (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .destaque-container,
+    .noticias-grid,
+    .footer-info {
+        flex-direction: column;
+    }
+
+    .destaque-item,
+    .noticia-item,
+    .footer-info > div {
+        margin: 15px 0;
+    }
+}

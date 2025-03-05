@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MitLab - Laboratório de Pesquisa em Energia Mitocondrial</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container-max {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Cores institucionais da USP */
+        .bg-primary {
+            background-color: #0b4da2;
+        }
+        
+        .text-primary {
+            color: #0b4da2;
+        }
+        
+        .border-primary {
+            border-color: #0b4da2;
+        }
+        
+        /* Estilo para o menu de navegação */
+        .nav-link {
+            color: white;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Estilo para as seções */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 50px;
+            background-color: #0b4da2;
+        }
+        
+        /* Estilo para os cards clicáveis */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Botão no estilo USP */
+        .btn-usp {
+            background-color: #0b4da2;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-usp:hover {
+            background-color: #083a7e;
+        }
+        
+        /* Links estilizados */
+        .link-usp {
+            color: #0b4da2;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .link-usp:hover {
+            color: #083a7e;
+            text-decoration: underline;
+        }
+        
+        /* Estilos para as citações/destaques */
+        .highlight-box {
+            border-left: 4px solid #0b4da2;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            background-color: #f1f5fa;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra Institucional USP -->
+    <div class="bg-gray-100 py-1 border-b border-gray-300">
+        <div class="container-max flex justify-between items-center text-sm">
+            <a href="https://www.usp.br" target="_blank" class="text-gray-600 hover:underline">Universidade de São Paulo</a>
+            <!-- Adicione este código na barra institucional USP, substituindo a parte das opções de idioma -->
+
+<!-- CSS para o seletor de idiomas -->
+<style>
+    .language-selector {
+      display: flex;
+      align-items: center;
+    }
+    
+    .language-flag {
+      width: 24px;
+      height: 16px;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 1px solid transparent;
+    }
+    
+    .language-flag:hover {
+      transform: scale(1.1);
+    }
+    
+    .language-flag.active {
+      border: 1px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Estilo para o tooltip */
+    .language-item {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .language-item .tooltip {
+      visibility: hidden;
+      width: 80px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -40px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 12px;
+    }
+    
+    .language-item:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+  
+  <!-- HTML do seletor de idiomas (substitui o seletor original) -->
+  <div class="language-selector">
+    <div class="language-item">
+      <img src="https://flagcdn.com/w40/us.png" alt="English" class="language-flag active" data-lang="en">
+      <span class="tooltip">English</span>
+    </div>
+    <div class="language-item">
+      <img src="https://flagcdn.com/w40/br.png" alt="Português" class="language-flag" data-lang="pt">
+      <span class="tooltip">Português</span>
+    </div>
+    <div class="language-item">
+      <img src="https://flagcdn.com/w40/es.png" alt="Español" class="language-flag" data-lang="es">
+      <span class="tooltip">Español</span>
+    </div>
+    <div class="language-item">
+      <img src="https://flagcdn.com/w40/cn.png" alt="中文" class="language-flag" data-lang="zh">
+      <span class="tooltip">中文</span>
+    </div>
+  </div>
+        </div>
+    </div>
+
+    <!-- Cabeçalho com Logo e Título -->
+    <header class="bg-white py-6 shadow-sm">
+        <div class="container-max flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <img src="/api/read-file/MitLab.png" alt="Logo MitLab" class="h-16 mr-4">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-primary">MitLab</h1>
+                    <p class="text-gray-600">Laboratório de Pesquisa em Energia Mitocondrial</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-600 hover:text-primary">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-primary">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-primary">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-primary">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <form class="hidden md:flex items-center ml-4">
+                    <input type="text" placeholder="Buscar..." class="px-3 py-1 border border-gray-300 rounded-l-md focus:outline-none">
+                    <button type="submit" class="bg-primary text-white px-3 py-1 rounded-r-md">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu de Navegação -->
+    <nav class="bg-primary text-white py-0">
+        <div class="container-max">
+            <ul class="flex flex-wrap justify-center md:justify-start">
+                <li><a href="#inicio" class="nav-link block">Início</a></li>
+                <li><a href="#pesquisa" class="nav-link block">Pesquisa</a></li>
+                <li><a href="#equipe" class="nav-link block">Equipe</a></li>
+                <li><a href="#publicacoes" class="nav-link block">Publicações</a></li>
+                <li><a href="#infra" class="nav-link block">Infraestrutura</a></li>
+                <li><a href="#ensino" class="nav-link block">Ensino</a></li>
+                <li><a href="#contato" class="nav-link block">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner Principal -->
+    <div class="w-full bg-gray-700 relative">
+        <img src="/api/placeholder/1400/400" alt="Banner do Laboratório" class="w-full h-64 md:h-96 object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center">
+            <div class="container-max text-white">
+                <h2 class="text-3xl md:text-5xl font-bold mb-2">Pesquisa de Ponta em Energia Mitocondrial</h2>
+                <p class="text-xl md:text-2xl mb-6">Investigando a bioenergética celular para um futuro sustentável</p>
+                <a href="#pesquisa" class="bg-white text-primary px-6 py-2 rounded-md font-bold hover:bg-gray-100 transition">Conheça nossas pesquisas</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="py-12">
+        <!-- Seção Inicial -->
+        <section id="inicio" class="container-max mb-16">
+            <h2 class="text-3xl font-bold text-primary section-title">Sobre o Laboratório</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <p class="text-lg mb-6">
+                        O <strong>MitLab</strong> é um laboratório de ponta dedicado à pesquisa em energia mitocondrial. Nossa equipe multidisciplinar busca compreender e aplicar os mecanismos de conversão energética das mitocôndrias.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Localizado no Instituto de Pesquisas Avançadas, desenvolvemos pesquisas inovadoras na interface entre biologia celular e geração de energia sustentável.
+                    </p>
+                    <div class="highlight-box">
+                        <p class="italic text-lg">
+                            "Nosso objetivo é traduzir o conhecimento básico sobre bioenergética celular em soluções aplicáveis para desafios energéticos e biomédicos da sociedade."
+                        </p>
+                        <p class="font-semibold mt-2">— Dra. Marina Silva, Coordenadora</p>
+                    </div>
+                    <a href="#pesquisa" class="btn-usp inline-block mt-4">Saiba mais sobre nossas pesquisas</a>
+                </div>
+                <div>
+                    <img src="/api/placeholder/600/400" alt="Laboratório MitLab" class="w-full h-auto rounded-lg shadow-lg">
+                    <div class="grid grid-cols-3 gap-4 mt-4">
+                        <img src="/api/placeholder/200/200" alt="Equipamento 1" class="w-full h-32 object-cover rounded shadow">
+                        <img src="/api/placeholder/200/200" alt="Equipamento 2" class="w-full h-32 object-cover rounded shadow">
+                        <img src="/api/placeholder/200/200" alt="Equipamento 3" class="w-full h-32 object-cover rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Pesquisa -->
+        <section id="pesquisa" class="container-max mb-16">
+            <h2 class="text-3xl font-bold text-primary section-title">Linhas de Pesquisa</h2>
+            <p class="text-lg mb-8">Nosso laboratório desenvolve pesquisas em três principais áreas, todas interconectadas pelo estudo da energia mitocondrial:</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-2">Energia Mitocondrial</h3>
+                    <p class="mb-4">Investigação dos mecanismos de conversão de energia em mitocôndrias.</p>
+                    <a href="#" class="link-usp font-semibold">Saiba mais <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-2">Aplicações Biomédicas</h3>
+                    <p class="mb-4">Desenvolvimento de tecnologias baseadas em processos mitocondriais.</p>
+                    <a href="#" class="link-usp font-semibold">Saiba mais <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-2">Nanotecnologia</h3>
+                    <p class="mb-4">Pesquisa em aplicações de nanotecnologia para energia celular.</p>
+                    <a href="#" class="link-usp font-semibold">Saiba mais <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+            
+            <!-- Container para detalhes das pesquisas (preenchido via JavaScript) -->
+            <div id="detalhes-pesquisa" class="mt-8"></div>
+        </section>
+
+        <!-- Destaques/Números -->
+        <section class="bg-gray-100 py-16 mb-16">
+            <div class="container-max">
+                <h2 class="text-3xl font-bold text-primary section-title text-center mb-12">O MitLab em Números</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-primary text-4xl font-bold mb-2">25+</div>
+                        <p class="text-gray-600">Pesquisadores</p>
+                    </div>
+                    <div>
+                        <div class="text-primary text-4xl font-bold mb-2">120+</div>
+                        <p class="text-gray-600">Publicações</p>
+                    </div>
+                    <div>
+                        <div class="text-primary text-4xl font-bold mb-2">15</div>
+                        <p class="text-gray-600">Projetos em Andamento</p>
+                    </div>
+                    <div>
+                        <div class="text-primary text-4xl font-bold mb-2">8</div>
+                        <p class="text-gray-600">Patentes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção da Equipe -->
+        <section id="equipe" class="container-max mb-16">
+            <h2 class="text-3xl font-bold text-primary section-title">Nossa Equipe</h2>
+            <p class="text-lg mb-8">O MitLab reúne pesquisadores altamente qualificados com formação multidisciplinar e experiência internacional:</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="/api/placeholder/400/400" alt="Dra. Marina Silva" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-primary">Dra. Marina Silva</h3>
+                        <p class="text-gray-600 mb-4">Coordenadora</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="/api/placeholder/400/400" alt="Dr. Ricardo Oliveira" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-primary">Dr. Ricardo Oliveira</h3>
+                        <p class="text-gray-600 mb-4">Pesquisador Sênior</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <img src="/api/placeholder/400/400" alt="Profa. Ana Costa" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-primary">Profa. Ana Costa</h3>
+                        <p class="text-gray-600 mb-4">Especialista em Nanotecnologia</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Container para biografias da equipe (preenchido via JavaScript) -->
+            <div id="detalhes-equipe" class="mt-8"></div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="btn-usp inline-block">Ver Equipe Completa</a>
+            </div>
+        </section>
+        
+        <!-- Seção de Infraestrutura -->
+        <section id="infra" class="bg-gray-100 py-16 mb-16">
+            <div class="container-max">
+                <h2 class="text-3xl font-bold text-primary section-title">Infraestrutura</h2>
+                <p class="text-lg mb-8">O MitLab conta com instalações modernas e equipamentos de última geração para suportar pesquisas de ponta:</p>
+                
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                            <h3 class="font-bold text-xl text-primary mb-4">Laboratórios Especializados</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Laboratório de Bioenergética Celular</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Unidade de Microscopia Avançada</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Centro de Nanomateriais</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Laboratório de Proteômica e Metabolômica</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="font-bold text-xl text-primary mb-4">Equipamentos</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Microscópios Confocais de Alta Resolução</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Sequenciadores de Nova Geração</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Analisadores de Respiração Celular</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Espectrômetros de Massa</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="/api/placeholder/600/400" alt="Laboratório MitLab" class="w-full h-auto rounded-lg shadow-lg mb-6">
+                        <div class="grid grid-cols-2 gap-6">
+                            <img src="/api/placeholder/300/200" alt="Equipamento 1" class="w-full h-40 object-cover rounded shadow">
+                            <img src="/api/placeholder/300/200" alt="Equipamento 2" class="w-full h-40 object-cover rounded shadow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Ensino -->
+        <section id="ensino" class="container-max mb-16">
+            <h2 class="text-3xl font-bold text-primary section-title">Ensino e Formação</h2>
+            <p class="text-lg mb-8">O MitLab está comprometido com a formação de novos pesquisadores e a disseminação do conhecimento:</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-2">Pós-Graduação</h3>
+                    <p>Oferecemos oportunidades para mestrado e doutorado em diferentes linhas de pesquisa relacionadas à energia mitocondrial.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-2">Iniciação Científica</h3>
+                    <p>Programa de iniciação científica para alunos de graduação interessados em desenvolver pesquisa básica e aplicada.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-primary mb-2">Cursos e Workshops</h3>
+                    <p>Organizamos regularmente cursos e workshops sobre técnicas avançadas em bioenergética celular e nanotecnologia.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="font-bold text-xl text-primary mb-4">Processo Seletivo</h3>
+                <p class="mb-4">Interessados em ingressar no programa de pós-graduação do MitLab devem observar os seguintes prazos:</p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="border-b-2 border-gray-300 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Programa</th>
+                                <th class="border-b-2 border-gray-300 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Inscrições</th>
+                                <th class="border-b-2 border-gray-300 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Processo Seletivo</th>
+                                <th class="border-b-2 border-gray-300 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Início</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border-b border-gray-300 px-6 py-4">Mestrado</td>
+                                <td class="border-b border-gray-300 px-6 py-4">15/08 a 15/09/2025</td>
+                                <td class="border-b border-gray-300 px-6 py-4">01/10 a 15/10/2025</td>
+                                <td class="border-b border-gray-300 px-6 py-4">Março/2026</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-gray-300 px-6 py-4">Doutorado</td>
+                                <td class="border-b border-gray-300 px-6 py-4">15/08 a 15/09/2025</td>
+                                <td class="border-b border-gray-300 px-6 py-4">01/10 a 15/10/2025</td>
+                                <td class="border-b border-gray-300 px-6 py-4">Março/2026</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-gray-300 px-6 py-4">Doutorado Direto</td>
+                                <td class="border-b border-gray-300 px-6 py-4">15/08 a 15/09/2025</td>
+                                <td class="border-b border-gray-300 px-6 py-4">01/10 a 15/10/2025</td>
+                                <td class="border-b border-gray-300 px-6 py-4">Março/2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4">
+                    <a href="#" class="link-usp font-semibold">Mais informações sobre o processo seletivo <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Publicações -->
+        <section id="publicacoes" class="bg-gray-100 py-16 mb-16">
+            <div class="container-max">
+                <h2 class="text-3xl font-bold text-primary section-title">Publicações Recentes</h2>
+                <p class="text-lg mb-8">Confira nossas contribuições mais recentes para o avanço científico na área:</p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-xl text-primary mb-4">Artigos Científicos</h3>
+                        <ul class="space-y-4">
+                            <li class="border-b pb-4">
+                                <a href="#" target="_blank" class="text-primary font-semibold hover:underline">Mecanismos de Energia Mitocondrial e suas Implicações para Doenças Neurodegenerativas</a>
+                                <p class="text-sm text-gray-600 mt-1">Silva, M., Oliveira, R., Costa, A. et al.</p>
+                                <p class="text-sm italic">Revista de Biotecnologia, 2025</p>
+                            </li>
+                            <li class="border-b pb-4">
+                                <a href="#" target="_blank" class="text-primary font-semibold hover:underline">Nanotecnologia Celular: Avanços em Direcionamento de Fármacos para Mitocôndrias</a>
+                                <p class="text-sm text-gray-600 mt-1">Costa, A., Silva, M., Santos, J. et al.</p>
+                                <p class="text-sm italic">Jornal de Inovação Científica, 2024</p>
+                            </li>
+                            <li class="border-b pb-4">
+                                <a href="#" target="_blank" class="text-primary font-semibold hover:underline">Metabolismo Energético em Células Tumorais: Novas Abordagens Terapêuticas</a>
+                                <p class="text-sm text-gray-600 mt-1">Oliveira, R., Lima, P., Silva, M. et al.</p>
+                                <p class="text-sm italic">Cancer Research Journal, 2024</p>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="text-primary font-semibold hover:underline">Biomarcadores Mitocondriais para Diagnóstico Precoce de Doenças Neurodegenerativas</a>
+                                <p class="text-sm text-gray-600 mt-1">Silva, M., Mendes, L., Costa, A. et al.</p>
+                                <p class="text-sm italic">Neurology Insights, 2023</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-xl text-primary mb-4">Conferências e Eventos</h3>
+                        <ul class="space-y-4">
+                            <li class="border-b pb-4">
+                                <a href="#" target="_blank" class="text-primary font-semibold hover:underline">Simpósio Internacional de Bioenergia</a>
+                                <p class="text-sm mt-1">Apresentação oral: "Nanomateriais inspirados em estruturas mitocondriais"</p>
+                                <p class="text-sm text-gray-600">Junho de 2025 - Boston, EUA</p>
+                            </li>
+                            <li class="border-b pb-4">
+                                <a href="#" target="_blank" class="text-primary font-semibold hover:underline">Workshop de Nanotecnologia e Medicina</a>
+                                <p class="text-sm mt-1">Palestra: "Nanopartículas para entrega direcionada de drogas às mitocôndrias"</p>
+                                <p class="text-sm text-gray-600">Setembro de 2024 - São Paulo, Brasil</p>
+                            </li>
+                            <li class="border-b pb-4">
+                                <a href="#" target="_blank" class="text-primary font-semibold hover:underline">Congresso Brasileiro de Biofísica</a>
+                                <p class="text-sm mt-1">Poster: "Técnicas não-invasivas para mensuração da atividade mitocondrial in vivo"</p>
+                                <p class="text-sm text-gray-600">Novembro de 2024 - Rio de Janeiro, Brasil</p>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="text-primary font-semibold hover:underline">European Bioenergetics Conference</a>
+                                <p class="text-sm mt-1">Apresentação oral: "Adaptações mitocondriais em condições de hipóxia"</p>
+                                <p class="text-sm text-gray-600">Julho de 2024 - Barcelona, Espanha</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="#" class="btn-usp inline-block">Ver Todas as Publicações</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Colaborações -->
+        <section class="container-max mb-16">
+            <h2 class="text-3xl font-bold text-primary section-title">Colaborações e Parcerias</h2>
+            <p class="text-lg mb-8">O MitLab mantém colaborações com instituições nacionais e internacionais:</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center">
+                <img src="/api/placeholder/200/100" alt="Logo USP" class="h-20 w-auto grayscale hover:grayscale-0 transition">
+                <img src="/api/placeholder/200/100" alt="Logo MIT" class="h-20 w-auto grayscale hover:grayscale-0 transition">
+                <img src="/api/placeholder/200/100" alt="Logo FAPESP" class="h-20 w-auto grayscale hover:grayscale-0 transition">
+                <img src="/api/placeholder/200/100" alt="Logo CNPq" class="h-20 w-auto grayscale hover:grayscale-0 transition">
+                <img src="/api/placeholder/200/100" alt="Logo Cambridge" class="h-20 w-auto grayscale hover:grayscale-0 transition">
+                <img src="/api/placeholder/200/100" alt="Logo MaxPlanck" class="h-20 w-auto grayscale hover:grayscale-0 transition">
+                <img src="/api/placeholder/200/100" alt="Logo CNRS" class="h-20 w-auto grayscale hover:grayscale-0 transition">
+                <img src="/api/placeholder/200/100" alt="Logo EMBRAPA" class="h-20 w-auto grayscale hover:grayscale-0 transition">
+            </div>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contato" class="bg-gray-100 py-16">
+            <div class="container-max">
+                <h2 class="text-3xl font-bold text-primary section-title">Contato</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="font-bold text-xl text-primary mb-4">Informações de Contato</h3>
+                        <address class="not-italic space-y-3 mb-6">
+                            <p class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                                <span>MitLab - Laboratório de Pesquisa<br>
+                                Instituto de Pesquisas Avançadas<br>
+                                Av. Universitária, 1234<br>
+                                São Paulo, SP - Brasil<br>
+                                CEP: 05508-900</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-envelope text-primary mr-3"></i>
+                                <a href="mailto:contato@mitlab.usp.br" class="hover:underline">contato@mitlab.usp.br</a>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-phone text-primary mr-3"></i>
+                                <span>+55 (11) 3091-1234</span>
+                            </p>
+                        </address>
+                        
+                        <h3 class="font-bold text-xl text-primary mb-4">Acompanhe nas Redes Sociais</h3>
+                        <div class="flex space-x-4 mb-6">
+                            <a href="#" class="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                        
+                        <h3 class="font-bold text-xl text-primary mb-4">Localização</h3>
+                        <div class="w-full h-64 bg-gray-300 rounded-lg shadow-md">
+                            <img src="/api/placeholder/600/300" alt="Mapa de Localização" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="font-bold text-xl text-primary mb-4">Envie uma Mensagem</h3>
+                            <form>
+                                <div class="mb-4">
+                                    <label for="nome" class="block text-gray-700 mb-2">Nome</label>
+                                    <input type="text" id="nome" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="assunto" class="block text-gray-700 mb-2">Assunto</label>
+                                    <input type="text" id="assunto" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="mensagem" class="block text-gray-700 mb-2">Mensagem</label>
+                                    <textarea id="mensagem" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"></textarea>
+                                </div>
+                                <button type="submit" class="bg-primary text-white py-2 px-6 rounded-md hover:bg-blue-700 transition">Enviar Mensagem</button>
+                            </form>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+                            <h3 class="font-bold text-xl text-primary mb-4">Informações para Imprensa</h3>
+                            <p class="mb-4">Para solicitações de entrevistas, informações sobre pesquisas ou material para imprensa, entre em contato com nossa assessoria de comunicação:</p>
+                            <p class="flex items-center mb-2">
+                                <i class="fas fa-user text-primary mr-3"></i>
+                                <span>Lúcia Santos - Assessora de Comunicação</span>
+                            </p>
+                            <p class="flex items-center mb-2">
+                                <i class="fas fa-envelope text-primary mr-3"></i>
+                                <a href="mailto:imprensa@mitlab.usp.br" class="hover:underline">imprensa@mitlab.usp.br</a>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-phone text-primary mr-3"></i>
+                                <span>+55 (11) 3091-5678</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-primary text-white pt-10 pb-6">
+        <div class="container-max">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">MitLab</h4>
+                    <p class="text-sm mb-4">
+                        O <strong>MitLab</strong> é um laboratório de ponta dedicado à pesquisa em energia mitocondrial. Nossa equipe multidisciplinar busca compreender e aplicar os mecanismos de conversão energética das mitocôndrias.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:underline">Início</a></li>
+                        <li><a href="#pesquisa" class="hover:underline">Pesquisa</a></li>
+                        <li><a href="#equipe" class="hover:underline">Equipe</a></li>
+                        <li><a href="#publicacoes" class="hover:underline">Publicações</a></li>
+                        <li><a href="#contato" class="hover:underline">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Recursos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Área do Aluno</a></li>
+                        <li><a href="#" class="hover:underline">Biblioteca</a></li>
+                        <li><a href="#" class="hover:underline">Agendamento de Equipamentos</a></li>
+                        <li><a href="#" class="hover:underline">Política de Dados</a></li>
+                        <li><a href="#" class="hover:underline">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contato</h4>
+                    <address class="not-italic text-sm space-y-2">
+                        <p>Av. Universitária, 1234</p>
+                        <p>São Paulo, SP - Brasil</p>
+                        <p>CEP: 05508-900</p>
+                        <p>Email: contato@mitlab.usp.br</p>
+                        <p>Tel: +55 (11) 3091-1234</p>
+                    </address>
+                </div>
+            </div>
+            <div class="border-t border-blue-400 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2025 MitLab - Todos os direitos reservados</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-sm hover:underline">Política de Privacidade</a>
+                    <a href="#" class="text-sm hover:underline">Termos de Uso</a>
+                    <a href="#" class="text-sm hover:underline">Acessibilidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para tornar os elementos clicáveis -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Configuração das linhas de pesquisa
+        var pesquisaSection = document.getElementById('pesquisa');
+        var pesquisaCards = pesquisaSection.querySelectorAll('.card-hover');
+        
+        // Crie o container para detalhes das pesquisas apenas uma vez
+        var detalhesContainer = document.getElementById('detalhes-pesquisa');
+        
+        // Conteúdo para cada linha de pesquisa
+        var conteudosPesquisa = [
+            // Energia Mitocondrial
+            '<div class="bg-white p-6 rounded-lg shadow-md mb-6 mt-8">' +
+                '<h3 class="text-2xl font-bold text-primary mb-4">Energia Mitocondrial</h3>' +
+                '<p class="mb-4">Nossa pesquisa em energia mitocondrial foca na compreensão profunda dos mecanismos celulares responsáveis pela produção de ATP e outros processos bioenergéticos.</p>' +
+                '<p class="mb-4">Utilizamos técnicas avançadas de microscopia e análise molecular para investigar:</p>' +
+                '<ul class="list-disc pl-6 mb-4">' +
+                    '<li>Cadeia de transporte de elétrons</li>' +
+                    '<li>Fosforilação oxidativa</li>' +
+                    '<li>Dinâmica mitocondrial</li>' +
+                    '<li>Adaptações em condições de estresse</li>' +
+                '</ul>' +
+                '<p>Nosso objetivo é aplicar esse conhecimento no desenvolvimento de soluções para doenças metabólicas e novas tecnologias de energia biomimética.</p>' +
+                '<div class="grid grid-cols-2 gap-4 mt-6">' +
+                    '<img src="/api/placeholder/400/250" alt="Pesquisa 1" class="w-full h-48 object-cover rounded">' +
+                    '<img src="/api/placeholder/400/250" alt="Pesquisa 2" class="w-full h-48 object-cover rounded">' +
+                '</div>' +
+            '</div>',
+            
+            // Aplicações Biomédicas
+            '<div class="bg-white p-6 rounded-lg shadow-md mb-6 mt-8">' +
+                '<h3 class="text-2xl font-bold text-primary mb-4">Aplicações Biomédicas</h3>' +
+                '<p class="mb-4">Nossa linha de pesquisa em aplicações biomédicas busca traduzir o conhecimento sobre processos mitocondriais em soluções práticas para a medicina.</p>' +
+                '<p class="mb-4">Principais áreas de desenvolvimento:</p>' +
+                '<ul class="list-disc pl-6 mb-4">' +
+                    '<li>Terapias para doenças neurodegenerativas</li>' +
+                    '<li>Tratamentos para disfunções metabólicas</li>' +
+                    '<li>Dispositivos médicos de monitoramento energético celular</li>' +
+                    '<li>Biomarcadores mitocondriais para diagnóstico precoce</li>' +
+                '</ul>' +
+                '<p>Colaboramos ativamente com hospitais e centros de pesquisa clínica para validar nossas tecnologias.</p>' +
+                '<div class="grid grid-cols-2 gap-4 mt-6">' +
+                    '<img src="/api/placeholder/400/250" alt="Aplicação 1" class="w-full h-48 object-cover rounded">' +
+                    '<img src="/api/placeholder/400/250" alt="Aplicação 2" class="w-full h-48 object-cover rounded">' +
+                '</div>' +
+            '</div>',
+            
+            // Nanotecnologia
+            '<div class="bg-white p-6 rounded-lg shadow-md mb-6 mt-8">' +
+                '<h3 class="text-2xl font-bold text-primary mb-4">Nanotecnologia</h3>' +
+                '<p class="mb-4">Nossa pesquisa em nanotecnologia explora a interface entre materiais em escala nanométrica e processos biológicos energéticos.</p>' +
+                '<p class="mb-4">Linhas de investigação atuais:</p>' +
+                '<ul class="list-disc pl-6 mb-4">' +
+                    '<li>Nanopartículas para entrega direcionada de substratos energéticos</li>' +
+                    '<li>Sensores nanométricos para monitoramento da função mitocondrial</li>' +
+                    '<li>Nanomateriais inspirados em estruturas mitocondriais</li>' +
+                    '<li>Interfaces bio-eletrônicas em escala celular</li>' +
+                '</ul>' +
+                '<p>Esta pesquisa tem aplicações promissoras tanto na medicina quanto em tecnologias de energia renovável.</p>' +
+                '<div class="grid grid-cols-2 gap-4 mt-6">' +
+                    '<img src="/api/placeholder/400/250" alt="Nano 1" class="w-full h-48 object-cover rounded">' +
+                    '<img src="/api/placeholder/400/250" alt="Nano 2" class="w-full h-48 object-cover rounded">' +
+                '</div>' +
+            '</div>'
+        ];
+        
+        // Adicionar eventos de clique para os cards de pesquisa
+        for (var i = 0; i < pesquisaCards.length; i++) {
+            pesquisaCards[i].style.cursor = 'pointer';
+            
+            // Usar IIFE para capturar o valor correto de i
+            (function(index) {
+                pesquisaCards[index].addEventListener('click', function() {
+                    // Limpar conteúdo anterior
+                    detalhesContainer.innerHTML = '';
+                    
+                    // Adicionar novo conteúdo
+                    detalhesContainer.innerHTML = conteudosPesquisa[index];
+                    
+                    // Rolar para o conteúdo
+                    detalhesContainer.scrollIntoView({behavior: 'smooth'});
+                });
+            })(i);
+        }
+        
+        // 2. Configuração para abrir publicações em novas abas
+        var publicacoesLinks = document.querySelectorAll('#publicacoes a');
+        for (var i = 0; i < publicacoesLinks.length; i++) {
+            publicacoesLinks[i].setAttribute('target', '_blank');
+        }
+        
+        // 3. Configuração para os membros da equipe
+        var equipeSection = document.getElementById('equipe');
+        var equipeMembros = equipeSection.querySelectorAll('.card-hover');
+        
+        // Container para biografias da equipe
+        var bioContainer = document.getElementById('detalhes-equipe');
+        
+        // Conteúdo das biografias
+        var conteudosBio = [
+            // Dra. Marina Silva
+            '<div class="bg-white p-6 rounded-lg shadow-md mb-6 mt-8">' +
+                '<h3 class="text-2xl font-bold text-primary mb-4">Dra. Marina Silva</h3>' +
+                '<p class="mb-4">A Dra. Marina Silva lidera o MitLab desde sua fundação em 2018. Com doutorado em Bioquímica Celular pela Universidade de Cambridge e pós-doutorado no MIT, ela trouxe para o Brasil técnicas inovadoras em pesquisa mitocondrial.</p>' +
+                '<p class="mb-4">Principais contribuições científicas:</p>' +
+                '<ul class="list-disc pl-6 mb-4">' +
+                    '<li>Descoberta de um novo complexo proteico na cadeia respiratória mitocondrial</li>' +
+                    '<li>Desenvolvimento de técnicas não-invasivas para mensuração da atividade mitocondrial in vivo</li>' +
+                    '<li>Pioneirismo em modelos computacionais de dinâmica mitocondrial</li>' +
+                '</ul>' +
+                '<p>Nosso objetivo é aplicar esse conhecimento no desenvolvimento de soluções para doenças metabólicas e novas tecnologias de energia biomimética.</p>' +
+                '<div class="grid grid-cols-2 gap-4 mt-6">' +
+                    '<img src="/api/placeholder/400/250" alt="Pesquisa 1" class="w-full h-48 object-cover rounded">' +
+                    '<img src="/api/placeholder/400/250" alt="Pesquisa 2" class="w-full h-48 object-cover rounded">' +
+                '</div>' +
+            '</div>',
+            
+            // Dr. Ricardo Oliveira
+            '<div class="bg-white p-6 rounded-lg shadow-md mb-6 mt-8">' +
+                '<h3 class="text-2xl font-bold text-primary mb-4">Dr. Ricardo Oliveira</h3>' +
+                '<p class="mb-4">O Dr. Ricardo Oliveira é especialista em bioenergia celular, com formação em Biofísica pela UFRJ e doutorado em Fisiologia Celular pela Universidade de Oxford.</p>' +
+                '<p class="mb-4">Principais áreas de pesquisa:</p>' +
+                '<ul class="list-disc pl-6 mb-4">' +
+                    '<li>Adaptações mitocondriais em condições de hipóxia</li>' +
+                    '<li>Metabolismo energético em células tumorais</li>' +
+                    '<li>Desenvolvimento de biomarcadores para estresse oxidativo</li>' +
+                '</ul>' +
+                '<p>Em seus 15 anos de carreira, publicou mais de 45 artigos em revistas científicas internacionais e orientou 12 teses de doutorado.</p>' +
+                '<div class="grid grid-cols-2 gap-4 mt-6">' +
+                    '<img src="/api/placeholder/400/250" alt="Pesquisa 1" class="w-full h-48 object-cover rounded">' +
+                    '<img src="/api/placeholder/400/250" alt="Pesquisa 2" class="w-full h-48 object-cover rounded">' +
+                '</div>' +
+            '</div>',
+            
+            // Profa. Ana Costa
+            '<div class="bg-white p-6 rounded-lg shadow-md mb-6 mt-8">' +
+                '<h3 class="text-2xl font-bold text-primary mb-4">Profa. Ana Costa</h3>' +
+                '<p class="mb-4">A Profa. Ana Costa é responsável pela integração de nanotecnologia às pesquisas do MitLab. Com formação interdisciplinar em Química e Engenharia de Materiais pelo Instituto Tecnológico de Tokyo, traz uma perspectiva única ao laboratório.</p>' +
+                '<p class="mb-4">Projetos atuais:</p>' +
+                '<ul class="list-disc pl-6 mb-4">' +
+                    '<li>Desenvolvimento de nanopartículas para delivery direcionado de drogas às mitocôndrias</li>' +
+                    '<li>Nanosensores para monitoramento em tempo real da atividade mitocondrial</li>' +
+                    '<li>Nanomateriais inspirados em estruturas mitocondriais</li>' +
+                    '<li>Interfaces bio-eletrônicas em escala celular</li>' +
+                '</ul>' +
+                '<p>Além da pesquisa acadêmica, tem duas patentes registradas e colabora com empresas de biotecnologia no desenvolvimento de produtos.</p>' +
+                '<div class="grid grid-cols-2 gap-4 mt-6">' +
+                    '<img src="/api/placeholder/400/250" alt="Nano 1" class="w-full h-48 object-cover rounded">' +
+                    '<img src="/api/placeholder/400/250" alt="Nano 2" class="w-full h-48 object-cover rounded">' +
+                '</div>' +
+            '</div>'
+        ];
+        
+        // Adicionar eventos de clique para os membros da equipe
+        for (var i = 0; i < equipeMembros.length; i++) {
+            equipeMembros[i].style.cursor = 'pointer';
+            
+          // Usar IIFE para capturar o valor correto de i
+          (function(index) {
+                equipeMembros[index].addEventListener('click', function() {
+                    // Limpar conteúdo anterior
+                    bioContainer.innerHTML = '';
+                    
+                    // Adicionar novo conteúdo
+                    bioContainer.innerHTML = conteudosBio[index];
+                    
+                    // Rolar para o conteúdo
+                    bioContainer.scrollIntoView({behavior: 'smooth'});
+                });
+            })(i);
+        }
+        
+        // Smooth scroll para links de navegação
+        var navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                var targetId = this.getAttribute('href');
+                var targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animação para elementos quando entram na viewport
+        function animateOnScroll() {
+            var elements = document.querySelectorAll('.card-hover, .section-title, .btn-usp');
+            
+            elements.forEach(function(element) {
+                var position = element.getBoundingClientRect();
+                
+                // Se o elemento estiver visível na tela
+                if(position.top < window.innerHeight && position.bottom >= 0) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Adicionar classe para animação
+        var style = document.createElement('style');
+        style.innerHTML = `
+            .card-hover, .section-title, .btn-usp {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+            
+            .card-hover.visible, .section-title.visible, .btn-usp.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Chamar a função quando a página carrega e durante o scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    });
+    // Adicione este código no final do seu arquivo HTML, dentro da tag <script> existente
+// INÍCIO DO CÓDIGO DE TRADUÇÃO COMPLETA
+// Seletor de idiomas
+const languageFlags = document.querySelectorAll('.language-flag');
+
+// Dicionário de traduções expandido com mais textos do site
+const translations = {
+    // Inglês
+    'en': {
+        // Menu principal
+        'inicio': 'Home',
+        'pesquisa': 'Research',
+        'equipe': 'Team',
+        'publicacoes': 'Publications',
+        'infra': 'Infrastructure',
+        'ensino': 'Education',
+        'contato': 'Contact',
+        
+        // Títulos de seções
+        'sobre-laboratorio': 'About the Laboratory',
+        'linhas-pesquisa': 'Research Lines',
+        'nossa-equipe': 'Our Team',
+        'publicacoes-recentes': 'Recent Publications',
+        'infraestrutura': 'Infrastructure',
+        'ensino-formacao': 'Education and Training',
+        'colaboracoes-parcerias': 'Collaborations and Partnerships',
+        'numeros': 'MitLab in Numbers',
+        
+        // Banner principal
+        'banner-titulo': 'Cutting-edge Research in Mitochondrial Energy',
+        'banner-subtitulo': 'Investigating cellular bioenergetics for a sustainable future',
+        'banner-botao': 'Learn about our research',
+        
+        // Sobre o laboratório
+        'sobre-texto-1': 'MitLab is a state-of-the-art laboratory dedicated to research on mitochondrial energy. Our multidisciplinary team seeks to understand and apply the energy conversion mechanisms of mitochondria.',
+        'sobre-texto-2': 'Located at the Institute for Advanced Research, we develop innovative research at the interface between cell biology and sustainable energy generation.',
+        'sobre-citacao': '"Our goal is to translate basic knowledge about cellular bioenergetics into applicable solutions for society\'s energy and biomedical challenges."',
+        'sobre-coordenadora': '— Dr. Marina Silva, Coordinator',
+        'saiba-mais': 'Learn more about our research',
+        
+        // Linhas de pesquisa
+        'pesquisa-texto': 'Our laboratory conducts research in three main areas, all interconnected by the study of mitochondrial energy:',
+        'energia-mitocondrial': 'Mitochondrial Energy',
+        'energia-mit-desc': 'Investigation of energy conversion mechanisms in mitochondria.',
+        'aplicacoes-biomedicas': 'Biomedical Applications',
+        'biomedicas-desc': 'Development of technologies based on mitochondrial processes.',
+        'nanotecnologia': 'Nanotechnology',
+        'nano-desc': 'Research on nanotechnology applications for cellular energy.',
+        'saiba-mais-curto': 'Learn more',
+        
+        // Números
+        'pesquisadores': 'Researchers',
+        'publicacoes-count': 'Publications',
+        'projetos': 'Ongoing Projects',
+        'patentes': 'Patents',
+        
+        // Equipe
+        'equipe-texto': 'MitLab brings together highly qualified researchers with multidisciplinary training and international experience:',
+        'coordenadora': 'Coordinator',
+        'pesquisador-senior': 'Senior Researcher',
+        'especialista': 'Nanotechnology Specialist',
+        'equipe-completa': 'See Full Team',
+        
+        // Infraestrutura
+        'infra-texto': 'MitLab has modern facilities and state-of-the-art equipment to support cutting-edge research:',
+        'labs-especializados': 'Specialized Laboratories',
+        'lab-bioenergetica': 'Cellular Bioenergetics Laboratory',
+        'unidade-microscopia': 'Advanced Microscopy Unit',
+        'centro-nanomateriais': 'Nanomaterials Center',
+        'lab-proteomica': 'Proteomics and Metabolomics Laboratory',
+        'equipamentos': 'Equipment',
+        'microscopios': 'High Resolution Confocal Microscopes',
+        'sequenciadores': 'Next Generation Sequencers',
+        'analisadores': 'Cellular Respiration Analyzers',
+        'espectrometros': 'Mass Spectrometers',
+        
+        // Ensino
+        'ensino-texto': 'MitLab is committed to training new researchers and disseminating knowledge:',
+        'pos-graduacao': 'Graduate Programs',
+        'pos-desc': 'We offer opportunities for master\'s and doctoral degrees in different research lines related to mitochondrial energy.',
+        'ic': 'Scientific Initiation',
+        'ic-desc': 'Scientific initiation program for undergraduate students interested in developing basic and applied research.',
+        'cursos': 'Courses and Workshops',
+        'cursos-desc': 'We regularly organize courses and workshops on advanced techniques in cellular bioenergetics and nanotechnology.',
+        'processo-seletivo': 'Selection Process',
+        'processo-desc': 'Those interested in joining the MitLab graduate program should observe the following deadlines:',
+        'programa': 'Program',
+        'inscricoes': 'Registration',
+        'processo': 'Selection Process',
+        'inicio': 'Start',
+        'mestrado': 'Master\'s Degree',
+        'doutorado': 'Doctorate',
+        'doutorado-direto': 'Direct Doctorate',
+        'mais-info-processo': 'More information about the selection process',
+        
+        // Publicações
+        'pub-texto': 'Check out our most recent contributions to scientific advancement in the field:',
+        'artigos': 'Scientific Papers',
+        'conferencias': 'Conferences and Events',
+        'apresentacao-oral': 'Oral presentation',
+        'palestra': 'Lecture',
+        'poster': 'Poster',
+        'todas-publicacoes': 'See All Publications',
+        
+        // Contato
+        'info-contato': 'Contact Information',
+        'redes-sociais': 'Follow on Social Media',
+        'localizacao': 'Location',
+        'envie-mensagem': 'Send a Message',
+        'nome': 'Name',
+        'email': 'Email',
+        'assunto': 'Subject',
+        'mensagem': 'Message',
+        'enviar': 'Send Message',
+        'imprensa': 'Press Information',
+        'imprensa-desc': 'For interview requests, research information, or press material, contact our communication office:',
+        'assessora': 'Communication Advisor',
+        
+        // Rodapé
+        'footer-about': 'Mitochondrial Energy Research Laboratory, dedicated to the investigation and application of cellular bioenergetic mechanisms.',
+        'links-rapidos': 'Quick Links',
+        'recursos': 'Resources',
+        'area-aluno': 'Student Area',
+        'biblioteca': 'Library',
+        'agendamento': 'Equipment Scheduling',
+        'politica-dados': 'Data Policy',
+        'faqs': 'FAQs',
+        'direitos': 'All rights reserved',
+        'privacidade': 'Privacy Policy',
+        'termos': 'Terms of Use',
+        'acessibilidade': 'Accessibility',
+        
+        // Busca
+        'buscar': 'Search',
+        
+        // Universidade
+        'usp': 'University of São Paulo'
+    },
+    
+    // Português (padrão)
+    'pt': {
+        // Menu principal
+        'inicio': 'Início',
+        'pesquisa': 'Pesquisa',
+        'equipe': 'Equipe',
+        'publicacoes': 'Publicações',
+        'infra': 'Infraestrutura',
+        'ensino': 'Ensino',
+        'contato': 'Contato',
+        
+        // Títulos de seções
+        'sobre-laboratorio': 'Sobre o Laboratório',
+        'linhas-pesquisa': 'Linhas de Pesquisa',
+        'nossa-equipe': 'Nossa Equipe',
+        'publicacoes-recentes': 'Publicações Recentes',
+        'infraestrutura': 'Infraestrutura',
+        'ensino-formacao': 'Ensino e Formação',
+        'colaboracoes-parcerias': 'Colaborações e Parcerias',
+        'numeros': 'O MitLab em Números',
+        
+        // Banner principal
+        'banner-titulo': 'Pesquisa de Ponta em Energia Mitocondrial',
+        'banner-subtitulo': 'Investigando a bioenergética celular para um futuro sustentável',
+        'banner-botao': 'Conheça nossas pesquisas',
+        
+        // Sobre o laboratório
+        'sobre-texto-1': 'O MitLab é um laboratório de ponta dedicado à pesquisa em energia mitocondrial. Nossa equipe multidisciplinar busca compreender e aplicar os mecanismos de conversão energética das mitocôndrias.',
+        'sobre-texto-2': 'Localizado no Instituto de Pesquisas Avançadas, desenvolvemos pesquisas inovadoras na interface entre biologia celular e geração de energia sustentável.',
+        'sobre-citacao': '"Nosso objetivo é traduzir o conhecimento básico sobre bioenergética celular em soluções aplicáveis para desafios energéticos e biomédicos da sociedade."',
+        'sobre-coordenadora': '— Dra. Marina Silva, Coordenadora',
+        'saiba-mais': 'Saiba mais sobre nossas pesquisas',
+        
+        // Linhas de pesquisa
+        'pesquisa-texto': 'Nosso laboratório desenvolve pesquisas em três principais áreas, todas interconectadas pelo estudo da energia mitocondrial:',
+        'energia-mitocondrial': 'Energia Mitocondrial',
+        'energia-mit-desc': 'Investigação dos mecanismos de conversão de energia em mitocôndrias.',
+        'aplicacoes-biomedicas': 'Aplicações Biomédicas',
+        'biomedicas-desc': 'Desenvolvimento de tecnologias baseadas em processos mitocondriais.',
+        'nanotecnologia': 'Nanotecnologia',
+        'nano-desc': 'Pesquisa em aplicações de nanotecnologia para energia celular.',
+        'saiba-mais-curto': 'Saiba mais',
+        
+        // Números
+        'pesquisadores': 'Pesquisadores',
+        'publicacoes-count': 'Publicações',
+        'projetos': 'Projetos em Andamento',
+        'patentes': 'Patentes',
+        
+        // Equipe
+        'equipe-texto': 'O MitLab reúne pesquisadores altamente qualificados com formação multidisciplinar e experiência internacional:',
+        'coordenadora': 'Coordenadora',
+        'pesquisador-senior': 'Pesquisador Sênior',
+        'especialista': 'Especialista em Nanotecnologia',
+        'equipe-completa': 'Ver Equipe Completa',
+        
+        // Infraestrutura
+        'infra-texto': 'O MitLab conta com instalações modernas e equipamentos de última geração para suportar pesquisas de ponta:',
+        'labs-especializados': 'Laboratórios Especializados',
+        'lab-bioenergetica': 'Laboratório de Bioenergética Celular',
+        'unidade-microscopia': 'Unidade de Microscopia Avançada',
+        'centro-nanomateriais': 'Centro de Nanomateriais',
+        'lab-proteomica': 'Laboratório de Proteômica e Metabolômica',
+        'equipamentos': 'Equipamentos',
+        'microscopios': 'Microscópios Confocais de Alta Resolução',
+        'sequenciadores': 'Sequenciadores de Nova Geração',
+        'analisadores': 'Analisadores de Respiração Celular',
+        'espectrometros': 'Espectrômetros de Massa',
+        
+        // Ensino
+        'ensino-texto': 'O MitLab está comprometido com a formação de novos pesquisadores e a disseminação do conhecimento:',
+        'pos-graduacao': 'Pós-Graduação',
+        'pos-desc': 'Oferecemos oportunidades para mestrado e doutorado em diferentes linhas de pesquisa relacionadas à energia mitocondrial.',
+        'ic': 'Iniciação Científica',
+        'ic-desc': 'Programa de iniciação científica para alunos de graduação interessados em desenvolver pesquisa básica e aplicada.',
+        'cursos': 'Cursos e Workshops',
+        'cursos-desc': 'Organizamos regularmente cursos e workshops sobre técnicas avançadas em bioenergética celular e nanotecnologia.',
+        'processo-seletivo': 'Processo Seletivo',
+        'processo-desc': 'Interessados em ingressar no programa de pós-graduação do MitLab devem observar os seguintes prazos:',
+        'programa': 'Programa',
+        'inscricoes': 'Inscrições',
+        'processo': 'Processo Seletivo',
+        'inicio': 'Início',
+        'mestrado': 'Mestrado',
+        'doutorado': 'Doutorado',
+        'doutorado-direto': 'Doutorado Direto',
+        'mais-info-processo': 'Mais informações sobre o processo seletivo',
+        
+        // Publicações
+        'pub-texto': 'Confira nossas contribuições mais recentes para o avanço científico na área:',
+        'artigos': 'Artigos Científicos',
+        'conferencias': 'Conferências e Eventos',
+        'apresentacao-oral': 'Apresentação oral',
+        'palestra': 'Palestra',
+        'poster': 'Pôster',
+        'todas-publicacoes': 'Ver Todas as Publicações',
+        
+        // Contato
+        'info-contato': 'Informações de Contato',
+        'redes-sociais': 'Acompanhe nas Redes Sociais',
+        'localizacao': 'Localização',
+        'envie-mensagem': 'Envie uma Mensagem',
+        'nome': 'Nome',
+        'email': 'Email',
+        'assunto': 'Assunto',
+        'mensagem': 'Mensagem',
+        'enviar': 'Enviar Mensagem',
+        'imprensa': 'Informações para Imprensa',
+        'imprensa-desc': 'Para solicitações de entrevistas, informações sobre pesquisas ou material para imprensa, entre em contato com nossa assessoria de comunicação:',
+        'assessora': 'Assessora de Comunicação',
+        
+        // Rodapé
+        'footer-about': 'Laboratório de Pesquisa em Energia Mitocondrial, dedicado à investigação e aplicação dos mecanismos bioenergéticos celulares.',
+        'links-rapidos': 'Links Rápidos',
+        'recursos': 'Recursos',
+        'area-aluno': 'Área do Aluno',
+        'biblioteca': 'Biblioteca',
+        'agendamento': 'Agendamento de Equipamentos',
+        'politica-dados': 'Política de Dados',
+        'faqs': 'FAQs',
+        'direitos': 'Todos os direitos reservados',
+        'privacidade': 'Política de Privacidade',
+        'termos': 'Termos de Uso',
+        'acessibilidade': 'Acessibilidade',
+        
+        // Busca
+        'buscar': 'Buscar',
+        
+        // Universidade
+        'usp': 'Universidade de São Paulo'
+    },
+    
+    // Espanhol
+    'es': {
+        // Menu principal
+        'inicio': 'Inicio',
+        'pesquisa': 'Investigación',
+        'equipe': 'Equipo',
+        'publicacoes': 'Publicaciones',
+        'infra': 'Infraestructura',
+        'ensino': 'Enseñanza',
+        'contato': 'Contacto',
+        
+        // Títulos de seções
+        'sobre-laboratorio': 'Sobre el Laboratorio',
+        'linhas-pesquisa': 'Líneas de Investigación',
+        'nossa-equipe': 'Nuestro Equipo',
+        'publicacoes-recentes': 'Publicaciones Recientes',
+        'infraestrutura': 'Infraestructura',
+        'ensino-formacao': 'Enseñanza y Formación',
+        'colaboracoes-parcerias': 'Colaboraciones y Asociaciones',
+        'numeros': 'MitLab en Números',
+        
+        // Banner principal
+        'banner-titulo': 'Investigación de Vanguardia en Energía Mitocondrial',
+        'banner-subtitulo': 'Investigando la bioenergética celular para un futuro sostenible',
+        'banner-botao': 'Conozca nuestras investigaciones',
+        
+        // Sobre o laboratório
+        'sobre-texto-1': 'MitLab es un laboratorio de vanguardia dedicado a la investigación en energía mitocondrial. Nuestro equipo multidisciplinario busca comprender y aplicar los mecanismos de conversión energética de las mitocondrias.',
+        'sobre-texto-2': 'Ubicado en el Instituto de Investigaciones Avanzadas, desarrollamos investigaciones innovadoras en la interfaz entre biología celular y generación de energía sostenible.',
+        'sobre-citacao': '"Nuestro objetivo es traducir el conocimiento básico sobre bioenergética celular en soluciones aplicables para los desafíos energéticos y biomédicos de la sociedad."',
+        'sobre-coordenadora': '— Dra. Marina Silva, Coordinadora',
+        'saiba-mais': 'Más información sobre nuestras investigaciones',
+        
+        // Linhas de pesquisa
+        'pesquisa-texto': 'Nuestro laboratorio desarrolla investigaciones en tres áreas principales, todas interconectadas por el estudio de la energía mitocondrial:',
+        'energia-mitocondrial': 'Energía Mitocondrial',
+        'energia-mit-desc': 'Investigación de los mecanismos de conversión de energía en mitocondrias.',
+        'aplicacoes-biomedicas': 'Aplicaciones Biomédicas',
+        'biomedicas-desc': 'Desarrollo de tecnologías basadas en procesos mitocondriales.',
+        'nanotecnologia': 'Nanotecnología',
+        'nano-desc': 'Investigación en aplicaciones de nanotecnología para energía celular.',
+        'saiba-mais-curto': 'Más información',
+        
+        // Números
+        'pesquisadores': 'Investigadores',
+        'publicacoes-count': 'Publicaciones',
+        'projetos': 'Proyectos en Curso',
+        'patentes': 'Patentes',
+        
+        // Equipe
+        'equipe-texto': 'MitLab reúne investigadores altamente calificados con formación multidisciplinaria y experiencia internacional:',
+        'coordenadora': 'Coordinadora',
+        'pesquisador-senior': 'Investigador Senior',
+        'especialista': 'Especialista en Nanotecnología',
+        'equipe-completa': 'Ver Equipo Completo',
+        
+        // Infraestrutura
+        'infra-texto': 'MitLab cuenta con instalaciones modernas y equipos de última generación para apoyar investigaciones de vanguardia:',
+        'labs-especializados': 'Laboratorios Especializados',
+        'lab-bioenergetica': 'Laboratorio de Bioenergética Celular',
+        'unidade-microscopia': 'Unidad de Microscopía Avanzada',
+        'centro-nanomateriais': 'Centro de Nanomateriales',
+        'lab-proteomica': 'Laboratorio de Proteómica y Metabolómica',
+        'equipamentos': 'Equipos',
+        'microscopios': 'Microscopios Confocales de Alta Resolución',
+        'sequenciadores': 'Secuenciadores de Nueva Generación',
+        'analisadores': 'Analizadores de Respiración Celular',
+        'espectrometros': 'Espectrómetros de Masa',
+        
+        // Ensino
+        'ensino-texto': 'MitLab está comprometido con la formación de nuevos investigadores y la difusión del conocimiento:',
+        'pos-graduacao': 'Postgrado',
+        'pos-desc': 'Ofrecemos oportunidades para maestría y doctorado en diferentes líneas de investigación relacionadas con la energía mitocondrial.',
+        'ic': 'Iniciación Científica',
+        'ic-desc': 'Programa de iniciación científica para estudiantes de grado interesados en desarrollar investigación básica y aplicada.',
+        'cursos': 'Cursos y Talleres',
+        'cursos-desc': 'Organizamos regularmente cursos y talleres sobre técnicas avanzadas en bioenergética celular y nanotecnología.',
+        'processo-seletivo': 'Proceso de Selección',
+        'processo-desc': 'Los interesados en ingresar al programa de postgrado de MitLab deben observar los siguientes plazos:',
+        'programa': 'Programa',
+        'inscricoes': 'Inscripciones',
+        'processo': 'Proceso Selectivo',
+        'inicio': 'Inicio',
+        'mestrado': 'Maestría',
+        'doutorado': 'Doctorado',
+        'doutorado-direto': 'Doctorado Directo',
+        'mais-info-processo': 'Más información sobre el proceso de selección',
+        
+        // Publicações
+        'pub-texto': 'Consulte nuestras contribuciones más recientes al avance científico en el área:',
+        'artigos': 'Artículos Científicos',
+        'conferencias': 'Conferencias y Eventos',
+        'apresentacao-oral': 'Presentación oral',
+        'palestra': 'Ponencia',
+        'poster': 'Póster',
+        'todas-publicacoes': 'Ver Todas las Publicaciones',
+        
+        // Contato
+        'info-contato': 'Información de Contacto',
+        'redes-sociais': 'Síguenos en Redes Sociales',
+        'localizacao': 'Ubicación',
+        'envie-mensagem': 'Enviar un Mensaje',
+        'nome': 'Nombre',
+        'email': 'Email',
+        'assunto': 'Asunto',
+        'mensagem': 'Mensaje',
+        'enviar': 'Enviar Mensaje',
+        'imprensa': 'Información para Prensa',
+        'imprensa-desc': 'Para solicitudes de entrevistas, información sobre investigaciones o material para prensa, contacte nuestra asesoría de comunicación:',
+        'assessora': 'Asesora de Comunicación',
+        
+        // Rodapé
+        'footer-about': 'Laboratorio de Investigación en Energía Mitocondrial, dedicado a la investigación y aplicación de mecanismos bioenergéticos celulares.',
+        'links-rapidos': 'Enlaces Rápidos',
+        'recursos': 'Recursos',
+        'area-aluno': 'Área de Estudiantes',
+        'biblioteca': 'Biblioteca',
+        'agendamento': 'Programación de Equipos',
+        'politica-dados': 'Política de Datos',
+        'faqs': 'Preguntas Frecuentes',
+        'direitos': 'Todos los derechos reservados',
+        'privacidade': 'Política de Privacidad',
+        'termos': 'Términos de Uso',
+        'acessibilidade': 'Accesibilidad',
+        
+        // Busca
+        'buscar': 'Buscar',
+        
+        // Universidade
+        'usp': 'Universidad de São Paulo'
+    },
+    
+    // Mandarim
+    'zh': {
+        // Menu principal
+        'inicio': '首页',
+        'pesquisa': '研究',
+        'equipe': '团队',
+        'publicacoes': '出版物',
+        'infra': '基础设施',
+        'ensino': '教育',
+        'contato': '联系方式',
+        
+        // Títulos de seções
+        'sobre-laboratorio': '关于实验室',
+        'linhas-pesquisa': '研究方向',
+        'nossa-equipe': '我们的团队',
+        'publicacoes-recentes': '最新出版物',
+        'infraestrutura': '基础设施',
+        'ensino-formacao': '教育与培训',
+        'colaboracoes-parcerias': '合作与伙伴关系',
+        'numeros': 'MitLab数据',
+        
+        // Banner principal
+        'banner-titulo': '线粒体能量前沿研究',
+        'banner-subtitulo': '研究细胞生物能量学，创造可持续未来',
+        'banner-botao': '了解我们的研究',
+        
+        // Sobre o laboratório
+        'sobre-texto-1': 'MitLab是一家致力于线粒体能量研究的先进实验室。我们的多学科团队致力于理解和应用线粒体能量转换机制。',
+        'sobre-texto-2': '位于高级研究所，我们在细胞生物学和可持续能源生产的交叉领域开展创新研究。',
+        'sobre-citacao': '"我们的目标是将细胞生物能量学的基础知识转化为适用于社会能源和生物医学挑战的解决方案。"',
+        'sobre-coordenadora': '— Marina Silva博士，协调员',
+        'saiba-mais': '了解更多关于我们的研究',
+        
+        // Linhas de pesquisa
+        'pesquisa-texto': '我们的实验室在三个主要领域开展研究，所有这些领域都与线粒体能量研究相互关联：',
+        'energia-mitocondrial': '线粒体能量',
+        'energia-mit-desc': '研究线粒体中的能量转换机制。',
+        'aplicacoes-biomedicas': '生物医学应用',
+        'biomedicas-desc': '基于线粒体过程的技术开发。',
+        'nanotecnologia': '纳米技术',
+        'nano-desc': '细胞能量纳米技术应用研究。',
+        'saiba-mais-curto': '了解更多',
+        
+        // Números
+        'pesquisadores': '研究人员',
+        'publicacoes-count': '出版物',
+        'projetos': '进行中的项目',
+        'patentes': '专利',
+        
+        // Equipe
+        'equipe-texto': 'MitLab汇集了具有多学科培训和国际经验的高素质研究人员：',
+        'coordenadora': '协调员',
+        'pesquisador-senior': '高级研究员',
+        'especialista': '纳米技术专家',
+        'equipe-completa': '查看完整团队',
+        
+        // Infraestrutura
+        'infra-texto': 'MitLab拥有现代化设施和最先进的设备，支持前沿研究：',
+        'labs-especializados': '专业实验室',
+        'lab-bioenergetica': '细胞生物能量学实验室',
+        'unidade-microscopia': '先进显微镜单元',
+        'centro-nanomateriais': '纳米材料中心',
+        'lab-proteomica': '蛋白质组学和代谢组学实验室',
+        'equipamentos': '设备',
+        'microscopios': '高分辨率共焦显微镜',
+        'sequenciadores': '新一代测序仪',
+        'analisadores': '细胞呼吸分析仪',
+        'espectrometros': '质谱仪',
+        
+        // Ensino
+        'ensino-texto': 'MitLab致力于培养新研究人员和传播知识：',
+        'pos-graduacao': '研究生课程',
+        'pos-desc': '我们在与线粒体能量相关的不同研究领域提供硕士和博士学位机会。',
+        'ic': '科学启蒙',
+        'ic-desc': '为有兴趣开展基础和应用研究的本科生提供科学启蒙计划。',
+        'cursos': '课程和工作坊',
+        'cursos-desc': '我们定期组织关于细胞生物能量学和纳米技术先进技术的课程和工作坊。',
+        'processo-seletivo': '选拔流程',
+        'processo-desc': '有意加入MitLab研究生课程的人员应注意以下截止日期：',
+        'programa': '项目',
+        'inscricoes': '注册',
+        'processo': '选拔过程',
+        'inicio': '开始',
+        'mestrado': '硕士学位',
+        'doutorado': '博士学位',
+        'doutorado-direto': '直接博士',
+        'mais-info-processo': '有关选拔过程的更多信息',
+        
+        // Publicações
+        'pub-texto': '查看我们在该领域最新的科学进展贡献：',
+        'artigos': '科学论文',
+        'conferencias': '会议和活动',
+        'apresentacao-oral': '口头报告',
+        'palestra': '讲座',
+        'poster': '海报',
+        'todas-publicacoes': '查看所有出版物',
+        
+        // Contato
+        'info-contato': '联系信息',
+        'redes-sociais': '社交媒体关注',
+        'localizacao': '位置',
+        'envie-mensagem': '发送消息',
+        'nome': '姓名',
+        'email': '电子邮件',
+        'assunto': '主题',
+        'mensagem': '消息',
+        'enviar': '发送消息',
+        'imprensa': '媒体信息',
+        'imprensa-desc': '对于采访请求、研究信息或媒体材料，请联系我们的传播办公室：',
+        'assessora': '传播顾问',
+        
+        // Rodapé
+        'footer-about': '线粒体能量研究实验室，致力于细胞生物能量机制的研究和应用。',
+        'links-rapidos': '快速链接',
+        'recursos': '资源',
+        'area-aluno': '学生区域',
+        'biblioteca': '图书馆',
+        'agendamento': '设备预约',
+        'politica-dados': '数据政策',
+        'faqs': '常见问题',
+        'direitos': '版权所有',
+        'privacidade': '隐私政策',
+        'termos': '使用条款',
+        'acessibilidade': '无障碍',
+        
+        // Busca
+        'buscar': '搜索',
+        
+        // Universidade
+        'usp': '圣保罗大学'
+    }
+};
+
+// Lista completa de elementos para traduzir
+const elementsToTranslate = [
+    // Menu principal e navegação
+    { selector: '.nav-link[href="#inicio"]', key: 'inicio' },
+    { selector: '.nav-link[href="#pesquisa"]', key: 'pesquisa' },
+    { selector: '.nav-link[href="#equipe"]', key: 'equipe' },
+    { selector: '.nav-link[href="#publicacoes"]', key: 'publicacoes' },
+    { selector: '.nav-link[href="#infra"]', key: 'infra' },
+    { selector: '.nav-link[href="#ensino"]', key: 'ensino' },
+    { selector: '.nav-link[href="#contato"]', key: 'contato' },
+    { selector: 'a[href="https://www.usp.br"]', key: 'usp' },
+    { selector: 'input[placeholder="Buscar..."]', attribute: 'placeholder', key: 'buscar' },
+    
+    // Títulos de seções
+    { selector: '#inicio .section-title', key: 'sobre-laboratorio' },
+    { selector: '#pesquisa .section-title', key: 'linhas-pesquisa' },
+    { selector: '#equipe .section-title', key: 'nossa-equipe' },
+    { selector: '#publicacoes .section-title', key: 'publicacoes-recentes' },
+    { selector: '#infra .section-title', key: 'infraestrutura' },
+    { selector: '#ensino .section-title', key: 'ensino-formacao' },
+    { selector: '.container-max > h2:contains("Colaborações")', key: 'colaboracoes-parcerias' },
+    { selector: '.bg-gray-100 .text-center .section-title', key: 'numeros' },
+    
+    // Banner principal
+    { selector: '.container-max .text-3xl, .container-max .text-5xl', key: 'banner-titulo' },
+    { selector: '.container-max .text-xl, .container-max .text-2xl', key: 'banner-subtitulo' },
+    { selector: '.bg-white.text-primary', key: 'banner-botao' },
+    
+    // Sobre o laboratório
+    { selector: '#inicio p.text-lg:nth-of-type(1)', key: 'sobre-texto-1' },
+    { selector: '#inicio p.text-lg:nth-of-type(2)', key: 'sobre-texto-2' },
+    { selector: '.highlight-box p.italic', key: 'sobre-citacao' },
+    { selector: '.highlight-box p.font-semibold', key: 'sobre-coordenadora' },
+    { selector: '#inicio .btn-usp', key: 'saiba-mais' }
+    
+    // ... (resto dos seletores para tradução)
+];
+
+// Função para traduzir a página
+function translatePage(lang) {
+    console.log('Traduzindo para:', lang);
+    const translation = translations[lang];
+    if (!translation) {
+        console.log('Tradução não encontrada para:', lang);
+        return;
+    }
+    
+    // Mudar classes ativas nas bandeiras
+    const languageFlags = document.querySelectorAll('.language-flag');
+    
+    // Corrigir erros no código de tradução
+    languageFlags.forEach(flag => {
+        if (flag.dataset.lang === lang) {
+            flag.classList.add('active');
+        } else {
+            flag.classList.remove('active');
+        }
+    });
+    
+    // Traduzir elementos
+    elementsToTranslate.forEach(item => {
+        try {
+            const elements = document.querySelectorAll(item.selector);
+            if (elements.length === 0) {
+                return;
+            }
+            
+            elements.forEach(element => {
+                if (translation[item.key]) {
+                    // Se precisamos traduzir um atributo específico
+                    if (item.attribute) {
+                        element.setAttribute(item.attribute, translation[item.key]);
+                        return;
+                    }
+                    
+                    // Preservar elementos HTML dentro do texto, se houver
+                    if (element.innerHTML.includes('<') && element.innerHTML.includes('>') && 
+                        !element.innerHTML.startsWith('<i ') && // Ignorar elementos que são apenas ícones
+                        element.children.length > 0) { // Tem elementos filhos reais
+                        
+                        // Procura por nós de texto diretos e os substitui
+                        let hasReplaced = false;
+                        for (let i = 0; i < element.childNodes.length; i++) {
+                            const node = element.childNodes[i];
+                            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                                // Substitui apenas os nós de texto, preservando os elementos HTML
+                                node.textContent = translation[item.key];
+                                hasReplaced = true;
+                                break;
+                            }
+                        }
+                        
+                        // Se não conseguimos substituir nós de texto diretos, tentamos uma abordagem alternativa
+                        if (!hasReplaced) {
+                            // Captura o texto atual (sem as tags HTML)
+                            const textOnly = element.textContent.trim();
+                            if (textOnly) {
+                                // Substitui apenas o texto, mantendo a estrutura HTML
+                                const html = element.innerHTML;
+                                element.innerHTML = html.replace(textOnly, translation[item.key]);
+                            }
+                        }
+                    } else {
+                        // Texto simples, substituir diretamente
+                        element.textContent = translation[item.key];
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Erro ao traduzir:', item.selector, error);
+        }
+    });
+    
+    // Salvar preferência no localStorage
+    localStorage.setItem('preferred-language', lang);
+}
+
+// Detectar idioma do navegador como fallback
+function detectBrowserLanguage() {
+    const browserLang = navigator.language || navigator.userLanguage;
+    console.log('Idioma do navegador:', browserLang);
+    
+    // Verificar se o idioma do navegador corresponde a um dos nossos idiomas disponíveis
+    if (browserLang.startsWith('pt')) return 'pt';
+    if (browserLang.startsWith('en')) return 'en';
+    if (browserLang.startsWith('es')) return 'es';
+    if (browserLang.startsWith('zh')) return 'zh';
+    
+    // Padrão para português se não encontrarmos correspondência
+    return 'pt';
+}
+
+// Evento de carregamento
+document.addEventListener('DOMContentLoaded', function() {
+    const languageFlags = document.querySelectorAll('.language-flag');
+    
+    // Adicionar eventos de clique às bandeiras
+    languageFlags.forEach(flag => {
+        flag.addEventListener('click', function() {
+            console.log('Bandeira clicada:', this.dataset.lang);
+            const lang = this.dataset.lang;
+            translatePage(lang);
+        });
+    });
+
+    // Verificar se há uma preferência de idioma salva
+    const savedLanguage = localStorage.getItem('preferred-language');
+    if (savedLanguage && translations[savedLanguage]) {
+        console.log('Idioma salvo encontrado:', savedLanguage);
+        translatePage(savedLanguage);
+    } else {
+        // Tentar detectar idioma do navegador ou usar português como padrão
+        const detectedLang = detectBrowserLanguage();
+        translatePage(detectedLang);
+    }
+
+    // Adicionar observador para alterações no DOM para traduzir elementos que são adicionados dinamicamente
+    const observer = new MutationObserver((mutations) => {
+        const currentLang = localStorage.getItem('preferred-language') || 'pt';
+        
+        // Verificar apenas quando elementos são adicionados
+        mutations.forEach(mutation => {
+            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                // Traduzir novamente para garantir que novos elementos sejam traduzidos
+                setTimeout(() => translatePage(currentLang), 100);
+            }
+        });
+    });
+
+    // Observar alterações no corpo do documento
+    observer.observe(document.body, { 
+        childList: true,
+        subtree: true 
+    });
+});
+    </script>
+    
+</body>
+
+</html>
